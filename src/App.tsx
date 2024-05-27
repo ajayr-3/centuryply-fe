@@ -1,12 +1,13 @@
-import { Fragment } from "react/jsx-runtime";
-import Drawer from "./components/Drawer";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './components/Home';
+import Chair3d from './components/Chair3d';
+import CustomCanvas from './components/CustomCanvas';
 
-function App() {
-  return (
-    <Fragment>
-      <Drawer />
-    </Fragment>
-  );
-}
+const Router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/chair3d', element: <Chair3d /> },
+  { path: '/canvas', element: <CustomCanvas /> },
+]);
+const App = () => <RouterProvider router={Router} />;
 
 export default App;
