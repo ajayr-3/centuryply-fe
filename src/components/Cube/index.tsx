@@ -1,9 +1,9 @@
+import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useRef } from 'react';
-import Model from './Model';
-import { OrbitControls } from '@react-three/drei';
+import Cube from './Cube';
 
-function CustomCanvas() {
+function CubeCanvas() {
   const canvasRef = useRef(null);
 
   return (
@@ -13,7 +13,7 @@ function CustomCanvas() {
           <Canvas ref={canvasRef}>
             <Suspense fallback={null}>
               <ambientLight />
-              <Model />
+              <Cube />
               <spotLight
                 intensity={0.9}
                 angle={0.1}
@@ -30,4 +30,4 @@ function CustomCanvas() {
   );
 }
 
-export default CustomCanvas;
+export default CubeCanvas;

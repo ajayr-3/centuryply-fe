@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -14,28 +15,17 @@
 }
 
 .card {
-  height: 50vh;
+  height: 100vh;
+  width: 100vw;
   border-radius: 13px;
   box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  width: 35vw;
-  background-color: #6cc2ce;
 }
 
 .product-canvas {
-  width: 35vw;
-  height: 38vh;
-  background: white;
+  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: #6cc2ce;
   box-shadow: 10px 15px 15px 6px #3891b4;
   border-radius: 0px;
-  margin-bottom: 20px;
-}
-
-.colors {
-  display: flex;
-  flex-direction: row;
-}
-
-.colors div {
-  padding: 8px;
 }

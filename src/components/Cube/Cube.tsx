@@ -1,7 +1,7 @@
 import { Euler, Vector3 } from '@react-three/fiber';
 import CubeFace from './CubeFace';
 
-const Model = () => {
+const Cube = () => {
   const colors = [
     'red', // back
     'green', // lower
@@ -32,4 +32,4 @@ const Model = () => {
     />
   ));
 };
-export default Model;
+export default Cube;

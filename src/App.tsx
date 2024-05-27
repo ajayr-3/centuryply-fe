@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
 import Chair3d from './components/Chair3d';
-import CustomCanvas from './components/CustomCanvas';
+import CubeCanvas from './components/Cube';
 
 const Router = createBrowserRouter([
   { path: '/', element: <Home /> },
   { path: '/chair3d', element: <Chair3d /> },
-  { path: '/canvas', element: <CustomCanvas /> },
+  { path: '/canvas', element: <CubeCanvas /> },
 ]);
 const App = () => <RouterProvider router={Router} />;
 
