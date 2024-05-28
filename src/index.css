@@ -22,10 +22,39 @@
 }
 
 .product-canvas {
-  padding: 2rem;
   width: 100vw;
   height: 100vh;
   background-color: #6cc2ce;
   box-shadow: 10px 15px 15px 6px #3891b4;
   border-radius: 0px;
+}
+.canvas {
+  background-image: url('bgimg.webp');
+  background-repeat: no-repeat;
+  /* background-size: 100%; */
+  background-clip: border-box;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.controls-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+}
+.input-group {
+  display: flex;
+  justify-items: flex-start;
+  align-content: center;
+  font-size: 1rem;
+}
+
+input[type='range'] {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+label {
+  margin-right: 0.5rem;
 }

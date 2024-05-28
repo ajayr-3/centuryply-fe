@@ -1,39 +1,84 @@
 import { Euler, Vector3 } from '@react-three/fiber';
 import CubeFace from './CubeFace';
 
-const Cube = () => {
-  const colors = [
-    'darkgray', // back
-    'lightgray', // lower
-    'lightgray', //top
-    'lightgray', //right
-    'lightgray', // left
+const Cube = ({
+  cubePosition,
+  compartmentHeight,
+  compartmentWidth,
+  compartmentDepth,
+  frontColor,
+  wallsColor,
+}: {
+  cubePosition?: Vector3;
+  compartmentHeight: number;
+  compartmentWidth: number;
+  compartmentDepth: number;
+  frontColor: string;
+  wallsColor: string;
+}) => {
+  if (!cubePosition) {
+    cubePosition = [0, 0, 0];
+  }
+
+  const allFacesData: {
+    placeMent: string;
+    color: string;
+    position: Vector3;
+    rotation: Euler;
+  }[] = [
+    {
+      placeMent: 'front',
+      color: frontColor,
+      position: [0, 1, 2],
+      rotation: [Math.PI / 2, 0, 0],
+    },
+    {
+      placeMent: 'back',
+      color: 'darkgray',
+      position: [0, 1, -0.2],
+      rotation: [Math.PI / 2, 0, 0],
+    },
+    {
+      placeMent: 'bottom',
+      color: wallsColor,
+      position: [0, 1, 0],
+      rotation: [0, Math.PI / 2, 0],
+    },
+    {
+      placeMent: 'top',
+      color: wallsColor,
+      position: [0, 1, 0],
+      rotation: [Math.PI, 0, 0],
+    },
+    {
+      placeMent: 'right',
+      color: wallsColor,
+      position: [0, 1, 0],
+      rotation: [0, 0, Math.PI / 2],
+    },
+    {
+      placeMent: 'left',
+      color: wallsColor,
+      position: [0, 1, 0],
+      rotation: [0, 0, -Math.PI / 2],
+    },
   ];
-  const positions: Vector3[] = [
-    [0, 1, -0.3],
-    [0, 1, 0],
-    [0, 1, 0],
-    [0, 1, 0],
-    [0, 1, 0],
-  ];
-  const rotations: Euler[] = [
-    [Math.PI / 2, 0, 0], //back
-    [0, Math.PI / 2, 0], //lower
-    [Math.PI, 0, 0], // top
-    [0, 0, Math.PI / 2], // right
-    [0, 0, -Math.PI / 2], // left
-  ];
+
   return (
     <group
       dispose={null}
-      scale={0.4}
-      rotation={[-Math.PI / 50, Math.PI / 20, 0]}>
-      {colors.map((_, index) => (
+      position={cubePosition}
+      scale={[compartmentWidth, compartmentHeight, compartmentDepth]}>
+      {allFacesData.map((faceData, idx) => (
         <CubeFace
-          key={index}
-          color={colors[index]}
-          position={positions[index]}
-          rotation={rotations[index]}
+          key={idx}
+          color={faceData.color}
+          position={faceData.position}
+          rotation={faceData.rotation}
+          placeMent={faceData.placeMent}
+          compartmentHeight={compartmentHeight}
+          compartmentWidth={compartmentWidth}
+          compartmentDepth={compartmentDepth}
         />
       ))}
     </group>
