@@ -3,14 +3,14 @@ import CubeFace from './CubeFace';
 
 const Cube = () => {
   const colors = [
-    'red', // back
-    'green', // lower
-    'yellow', //top
-    'lightgreen', //right
-    'gray', // left
+    'darkgray', // back
+    'lightgray', // lower
+    'lightgray', //top
+    'lightgray', //right
+    'lightgray', // left
   ];
   const positions: Vector3[] = [
-    [0, 1, 0],
+    [0, 1, -0.3],
     [0, 1, 0],
     [0, 1, 0],
     [0, 1, 0],
@@ -23,13 +23,20 @@ const Cube = () => {
     [0, 0, Math.PI / 2], // right
     [0, 0, -Math.PI / 2], // left
   ];
-  return colors.map((_, index) => (
-    <CubeFace
-      key={index}
-      color={colors[index]}
-      position={positions[index]}
-      rotation={rotations[index]}
-    />
-  ));
+  return (
+    <group
+      dispose={null}
+      scale={0.4}
+      rotation={[-Math.PI / 50, Math.PI / 20, 0]}>
+      {colors.map((_, index) => (
+        <CubeFace
+          key={index}
+          color={colors[index]}
+          position={positions[index]}
+          rotation={rotations[index]}
+        />
+      ))}
+    </group>
+  );
 };
 export default Cube;

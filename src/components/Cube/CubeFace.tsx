@@ -13,17 +13,15 @@ const CubeFace = ({
   const { nodes, materials } = useGLTF('CubeFace/CubeFace-transformed.glb');
 
   return (
-    <group>
-      <mesh
-        geometry={nodes.Cube.geometry}
-        material={materials.Material}
-        position={position}
-        scale={1.5}
-        rotation={rotation}
-        material-color={color}>
-        <meshStandardMaterial attach='material' color={color} />
-      </mesh>
-    </group>
+    <mesh
+      geometry={nodes.Cube.geometry}
+      material={materials.Material}
+      position={position}
+      scale={1.5}
+      rotation={rotation}
+      material-color={color}>
+      <meshStandardMaterial attach='material' color={color} />
+    </mesh>
   );
 };
 
