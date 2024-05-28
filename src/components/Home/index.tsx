@@ -9,7 +9,7 @@ function Home() {
           <Link to={'/chair3d'}>Chair 3D</Link>
         </li>
         <li>
-          <Link to={'/canvas'}>Canvas</Link>
+          <Link to={'/'}>Canvas</Link>
         </li>
       </ul>
     </div>
