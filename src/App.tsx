@@ -1,9 +1,9 @@
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './components/Home';
 import Chair3d from './components/Chair3d';
 import CubeCanvas from './components/Cube';
-import Home from './components/Home';
 
-const Router = createHashRouter([
+const Router = createBrowserRouter([
   { path: '/', element: <Home /> },
   { path: '/chair3d', element: <Chair3d /> },
   { path: '/canvas', element: <CubeCanvas /> },
