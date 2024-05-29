@@ -24,7 +24,8 @@ const Cabinet = () => {
           <Canvas
             ref={canvasRef}
             className='canvas'
-            camera={{ position: [-5, 5, 10] }}>
+            // camera={{ position: [-5, 5, 10] }}
+          >
             <Suspense fallback={null}>
               <CabinetCanvas
                 zoom={zoom}

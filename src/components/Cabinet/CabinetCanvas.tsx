@@ -16,7 +16,11 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
   } = props;
 
   return (
-    <group position={[-2, -8, 0]} scale={2}>
+    // <group position={[-2, -8, 0]} scale={1}>
+    <group
+      position={[-2, -8, -10]}
+      scale={2}
+      rotation={[-Math.PI / 9, Math.PI / 16, 0]}>
       <ambientLight />
       <group scale={zoom}>
         {[...new Array(rows)].map((_, idx) =>
