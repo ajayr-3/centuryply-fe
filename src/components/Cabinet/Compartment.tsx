@@ -10,6 +10,8 @@ const Compartment = (props: IPropsCompartment) => {
     wallsColor,
     cubePosition = [0, 0, 0],
     frontColor,
+    frontDoorTextureUrl,
+    wallsTextureUrl,
   } = props;
 
   const faceB = 0.2;
@@ -138,6 +140,8 @@ const Compartment = (props: IPropsCompartment) => {
           compartmentHeight={compartmentHeight}
           compartmentWidth={compartmentWidth}
           compartmentDepth={compartmentDepth}
+          frontDoorTextureUrl={frontDoorTextureUrl}
+          wallsTextureUrl={wallsTextureUrl}
         />
       ))}
     </group>

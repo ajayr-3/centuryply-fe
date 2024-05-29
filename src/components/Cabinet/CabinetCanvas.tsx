@@ -2,13 +2,21 @@ import { OrbitControls } from '@react-three/drei';
 import Compartment from './Compartment';
 import { IPropsCabinetCanvas } from './types';
 const CabinetCanvas = (props: IPropsCabinetCanvas) => {
-  const { zoom, rows, columns, height, width, depth, frontColor, wallsColor } =
-    props;
+  const {
+    zoom,
+    rows,
+    columns,
+    height,
+    width,
+    depth,
+    frontColor,
+    wallsColor,
+    frontDoorTextureUrl,
+    wallsTextureUrl,
+  } = props;
 
   return (
-    <group position={[-2, 0, 0]}>
-      <axesHelper scale={20} />
-      <arrowHelper scale={2} />
+    <group position={[-2, -8, 0]} scale={2}>
       <ambientLight />
       <group scale={zoom}>
         {[...new Array(rows)].map((_, idx) =>
@@ -21,6 +29,8 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
               compartmentDepth={depth}
               frontColor={frontColor}
               wallsColor={wallsColor}
+              frontDoorTextureUrl={frontDoorTextureUrl}
+              wallsTextureUrl={wallsTextureUrl}
             />
           ))
         )}

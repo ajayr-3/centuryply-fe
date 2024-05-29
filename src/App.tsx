@@ -6,8 +6,8 @@ import Cabinet from './components/Cabinet';
 
 const Router = createBrowserRouter([
   { path: '/0', element: <Chair3d /> },
-  { path: '/', element: <CubeCanvas /> },
-  { path: '/1', element: <Cabinet /> },
+  { path: '/', element: <Cabinet /> },
+  { path: '/1', element: <CubeCanvas /> },
   { path: '/home', element: <Home /> },
 ]);
 const App = () => <RouterProvider router={Router} />;

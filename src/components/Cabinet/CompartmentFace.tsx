@@ -13,13 +13,14 @@ const CompartmentFace = (props: IPropsCompartmentFace) => {
     placeMent,
     position,
     rotation,
+    frontDoorTextureUrl,
+    wallsTextureUrl,
   } = props;
   const { nodes, materials } = useGLTF(
     'CubeFace2/CubeFace2.gltf'
   ) as GLTFResult;
-
-  const whiteWoodTexture = useTexture('WhiteWood2.jpg');
-  const brownWoodTexture = useTexture('BrownWood.jpg');
+  const frontDoorTexture = useTexture(frontDoorTextureUrl || 'WhiteWood2.jpg');
+  const wallsTexture = useTexture(wallsTextureUrl || 'BrownWood.jpg');
   const brownWoodTexture2 = useTexture('wood.jpg');
 
   const [faceScaleVal, setFaceScaleVal] = useState<IFaceData['position']>([
@@ -59,11 +60,11 @@ const CompartmentFace = (props: IPropsCompartmentFace) => {
         castShadow
         material-color={color}>
         {placeMent === 'front' ? (
-          <meshStandardMaterial map={whiteWoodTexture} />
+          <meshStandardMaterial map={frontDoorTexture} />
         ) : placeMent === 'back' ? (
           <meshStandardMaterial map={brownWoodTexture2} />
         ) : (
-          <meshStandardMaterial map={brownWoodTexture} />
+          <meshStandardMaterial map={wallsTexture} />
         )}
       </mesh>
     </group>
