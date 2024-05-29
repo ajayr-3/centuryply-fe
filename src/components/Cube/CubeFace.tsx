@@ -1,6 +1,6 @@
 import { useGLTF } from '@react-three/drei';
 import { Euler, Vector3 } from '@react-three/fiber';
-import { GLTFResult } from '../../types';
+import { GLTFResult } from '../../module';
 
 const CubeFace = ({
   color,
