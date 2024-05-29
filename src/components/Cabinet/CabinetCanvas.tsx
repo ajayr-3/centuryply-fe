@@ -15,7 +15,7 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
           [...new Array(columns)].map((__, colIdx) => (
             <Compartment
               key={`${idx}-${colIdx}`}
-              cubePosition={[2 * colIdx, 2 * idx, 0]}
+              cubePosition={[2 * colIdx * width, 2 * idx * height, 0]}
               compartmentHeight={height}
               compartmentWidth={width}
               compartmentDepth={depth}
@@ -27,6 +27,8 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
       </group>
       <OrbitControls
         position={[0, 10, 0]}
+        enablePan
+        enableDamping
         enableZoom={true}
         enableRotate={true}
       />

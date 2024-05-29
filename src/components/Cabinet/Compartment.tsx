@@ -12,28 +12,68 @@ const Compartment = (props: IPropsCompartment) => {
     frontColor,
   } = props;
 
-  const faceWidth = 0.2;
+  const faceB = 0.2;
+  const faceL = 0.5;
   const initialPosition = 1;
-  const getXValOfRightFace = () => {
-    switch (compartmentWidth) {
+  const getXValOfRightFace = (dim: number, isFront?: boolean) => {
+    let ans = initialPosition;
+    switch (dim) {
       case 1:
-        return initialPosition;
+        ans = initialPosition;
+        break;
       case 2:
-        return compartmentWidth * (initialPosition + 0.5);
+        ans = dim * (initialPosition + faceL);
+        break;
       case 3:
-        return (
-          compartmentWidth * (initialPosition + 0.5) +
-          compartmentWidth * faceWidth
-        );
+        ans = dim * (initialPosition + faceL) + dim * faceB;
+        break;
       case 4:
-        return (
-          compartmentWidth * (initialPosition + 0.5) +
-          compartmentWidth * faceWidth +
-          0.5
-        );
+        ans = dim * (initialPosition + faceL) + dim * faceB + 0.2;
+        break;
+      case 5:
+        ans = dim * (initialPosition + faceL) + dim * faceB + faceL;
+        break;
+      case 6:
+        ans = dim * (initialPosition + faceL) + dim * faceB + faceL + faceL;
+        break;
+      case 7:
+        ans =
+          dim * (initialPosition + faceL) + dim * faceB + faceB + faceL + faceL;
+        break;
+      case 8:
+        ans =
+          dim * (initialPosition + faceL) +
+          dim * faceB +
+          faceB +
+          faceL +
+          faceL +
+          faceB;
+        break;
+      case 9:
+        ans =
+          dim * (initialPosition + faceL) +
+          dim * faceB +
+          faceB +
+          faceL +
+          faceL +
+          faceL +
+          faceB;
+        break;
+      case 10:
       default:
-        return initialPosition;
+        ans =
+          dim * (initialPosition + faceL) +
+          dim * faceB +
+          faceB +
+          faceL +
+          faceL +
+          faceL +
+          faceB +
+          faceB;
+        break;
     }
+
+    return isFront ? ans + 2 : ans;
   };
   const allFacesData: IFaceData[] = [
     {
@@ -45,7 +85,11 @@ const Compartment = (props: IPropsCompartment) => {
     {
       placeMent: 'right',
       color: wallsColor,
-      position: [getXValOfRightFace(), initialPosition, initialPosition],
+      position: [
+        getXValOfRightFace(compartmentWidth),
+        initialPosition,
+        initialPosition,
+      ],
       rotation: [0, 0, Math.PI / 2],
     },
     {
@@ -63,13 +107,21 @@ const Compartment = (props: IPropsCompartment) => {
     {
       placeMent: 'front',
       color: 'darkgray',
-      position: [initialPosition, initialPosition, 3 - 0.2],
+      position: [
+        initialPosition,
+        initialPosition,
+        getXValOfRightFace(compartmentDepth, true),
+      ],
       rotation: [Math.PI / 2, 0, 0],
     },
     {
       placeMent: 'top',
       color: wallsColor,
-      position: [initialPosition, initialPosition, initialPosition],
+      position: [
+        initialPosition,
+        getXValOfRightFace(compartmentHeight),
+        initialPosition,
+      ],
       rotation: [Math.PI, 0, 0],
     },
   ];

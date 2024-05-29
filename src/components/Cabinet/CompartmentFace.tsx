@@ -20,6 +20,7 @@ const CompartmentFace = (props: IPropsCompartmentFace) => {
 
   const whiteWoodTexture = useTexture('WhiteWood2.jpg');
   const brownWoodTexture = useTexture('BrownWood.jpg');
+  const brownWoodTexture2 = useTexture('wood.jpg');
 
   const [faceScaleVal, setFaceScaleVal] = useState<IFaceData['position']>([
     compartmentWidth,
@@ -54,11 +55,13 @@ const CompartmentFace = (props: IPropsCompartmentFace) => {
         material={materials.Material}
         position={position}
         rotation={rotation}
-        scale={(() => (placeMent === 'front' ? 0.8 : 1))()}
+        scale={(() => (placeMent === 'front' ? 0.9 : 1))()}
         castShadow
         material-color={color}>
         {placeMent === 'front' ? (
           <meshStandardMaterial map={whiteWoodTexture} />
+        ) : placeMent === 'back' ? (
+          <meshStandardMaterial map={brownWoodTexture2} />
         ) : (
           <meshStandardMaterial map={brownWoodTexture} />
         )}

@@ -19,7 +19,6 @@ function Controls(props: IPropsControls) {
     wallsColor,
     setWallsColor,
   } = props;
-  const isDimensionBugFixed = true;
 
   return (
     <div className='controls-container'>
@@ -72,7 +71,6 @@ function Controls(props: IPropsControls) {
           max={10}
           step={1}
           min={1}
-          disabled={!isDimensionBugFixed}
           onChange={(e) => setHeight(+e.target.value)}
         />
         {height}
@@ -87,7 +85,6 @@ function Controls(props: IPropsControls) {
           max={10}
           step={1}
           min={1}
-          disabled={!isDimensionBugFixed}
           onChange={(e) => setWidth(+e.target.value)}
         />
         {width}
