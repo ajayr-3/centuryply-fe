@@ -6,10 +6,13 @@ function Home() {
       <h1>All Links</h1>
       <ul>
         <li>
-          <Link to={'/chair3d'}>Chair 3D</Link>
+          <Link to={'/0'}>Chair 3D</Link>
         </li>
         <li>
           <Link to={'/'}>Canvas</Link>
+        </li>
+        <li>
+          <Link to={'/1'}>Canvas 2</Link>
         </li>
       </ul>
     </div>

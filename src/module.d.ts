@@ -10,6 +10,6 @@ export type GLTFResult = GLTF & {
     CubeFaceMesh: Mesh;
   };
   materials: {
-    Material: THREE.Material;
+    Material: Material;
   };
 };
