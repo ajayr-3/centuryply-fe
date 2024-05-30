@@ -1,6 +1,6 @@
-import { OrbitControls } from '@react-three/drei';
-import Compartment from './Compartment';
-import { IPropsCabinetCanvas } from './types';
+import { OrbitControls } from "@react-three/drei";
+import Compartment from "./Compartment";
+import { IPropsCabinetCanvas } from "./types";
 const CabinetCanvas = (props: IPropsCabinetCanvas) => {
   const {
     zoom,
@@ -18,9 +18,11 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
   return (
     // <group position={[-2, -8, 0]} scale={1}>
     <group
-      position={[-2, -8, -10]}
-      scale={2}
-      rotation={[-Math.PI / 9, Math.PI / 16, 0]}>
+      // position={[-2, -8, -10]}
+      position={[-1, -2, 0]}
+      scale={1}
+      // rotation={[-Math.PI / 9, Math.PI / 16, 0]}
+    >
       <ambientLight />
       <group scale={zoom}>
         {[...new Array(rows)].map((_, idx) =>
@@ -36,7 +38,7 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
               frontDoorTextureUrl={frontDoorTextureUrl}
               wallsTextureUrl={wallsTextureUrl}
             />
-          ))
+          )),
         )}
       </group>
       <OrbitControls
@@ -46,7 +48,7 @@ const CabinetCanvas = (props: IPropsCabinetCanvas) => {
         enableZoom={true}
         enableRotate={true}
       />
-      <directionalLight position={[0, 100, 0]} color='yellow' intensity={0.5} />
+      <directionalLight position={[0, 100, 0]} color="yellow" intensity={0.5} />
     </group>
   );
 };
